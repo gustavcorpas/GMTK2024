@@ -24,4 +24,5 @@ __Godot Engine - .NET v. 4.3__
 | CC      | Level Design / UI  | ?     |
 | Jepser    | ?          |      |
 | Michelle | Grafiks | ? |  
+| Johan | Programming | Johax |  
 
