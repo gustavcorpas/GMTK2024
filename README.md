@@ -18,9 +18,10 @@ __Godot Engine - .NET v. 4.3__
 | **Team Member** | **Role**         | **Discord Tag**     |
 |-----------------|------------------|---------------------|
 | Pelle   | Programming   | ?          |
+| Gustav     | Programming | gustav_68311       |
 | Malthe       | Sound      | ?    |
 | Mathilde (uden h)      | Misc.          | ?      |
 | CC      | Level Design / UI  | ?     |
 | Jepser    | ?          |      |
-| Gustav     | Programming | gustav_68311       |
+
 
