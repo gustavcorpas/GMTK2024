@@ -17,7 +17,7 @@ __Godot Engine - .NET v. 4.3__
 |-----------------|------------------|---------------------|
 | Pelle   | Programming   | ?          |
 | Malthe       | Sound      | ?    |
-| Mathilde       | Misc.          | ?      |
+| Mathilde (uden h)      | Misc.          | ?      |
 | CC      | Level Design / UI  | ?     |
 | Jepser    | ?          |      |
 | Gustav     | Programming | gustav_68311       |
