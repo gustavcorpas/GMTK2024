@@ -4,7 +4,8 @@ The following is for organizing work for the GMTK Game Jam 2024.
 
 You can find information about the jam at the [itch.io page](https://itch.io/jam/gmtk-2024).
 
-See the [discord group](https://discord.com/channels/1274044172021796887/1274044172692881503) for chatting.
+See the [discord group](https://discord.com/invite/962uRTBH) for chatting (invite)
+or [here](https://discord.com/channels/1274044172021796887/1274044172692881503) (group).
 
 ### Setup
 
