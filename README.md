@@ -23,5 +23,5 @@ __Godot Engine - .NET v. 4.3__
 | Mathilde (uden h)      | Misc.          | ?      |
 | CC      | Level Design / UI  | ?     |
 | Jepser    | ?          |      |
-
+| Michelle | Grafiks | ? |  
 
