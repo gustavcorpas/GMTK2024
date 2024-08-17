@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://541lhq1yjjh4"]
+
+[ext_resource type="Texture2D" uid="uid://2fkyynfyax0p" path="res://dogo.png" id="1_ltjba"]
+[ext_resource type="Script" path="res://gun.gd" id="2_iobmj"]
+
+[node name="Gun" type="Sprite2D"]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(0.0755916, 0.0404338)
+texture = ExtResource("1_ltjba")
+script = ExtResource("2_iobmj")
+
+[node name="Point" type="Marker2D" parent="."]
+unique_name_in_owner = true
