@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0ck0e6i26joy"]
+[gd_scene load_steps=8 format=3 uid="uid://d0ck0e6i26joy"]
 
 [ext_resource type="Script" path="res://scripts/environment/size_portal.gd" id="1_mayr0"]
-[ext_resource type="Texture2D" uid="uid://bldf0xyuyafun" path="res://assets/art/temporary.png" id="2_7joj2"]
+[ext_resource type="Texture2D" uid="uid://b11jmc8t0ebuv" path="res://assets/art/portal.png" id="2_0w7jx"]
+[ext_resource type="AudioStream" uid="uid://pthkmstvp8sy" path="res://assets/audio/Portal/Through_Portal_Minus_2.wav" id="3_d3x4e"]
+[ext_resource type="AudioStream" uid="uid://buqfc26niwtft" path="res://assets/audio/Portal/Through_Portal_Plus_2.wav" id="4_3upm5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7lwol"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7joj2")
+"texture": ExtResource("2_0w7jx")
 }],
 "loop": true,
 "name": &"idle",
@@ -15,18 +17,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lqy7"]
-size = Vector2(20, 63)
+size = Vector2(12, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0naq"]
-size = Vector2(20, 62)
+size = Vector2(13, 30)
 
-[node name="SizePortal" type="Node2D" node_paths=PackedStringArray("LeftArea2D", "RightArea2D")]
+[node name="SizePortal" type="Node2D" node_paths=PackedStringArray("sprite", "LeftArea2D", "RightArea2D", "diminish_sound", "augment_sound")]
 script = ExtResource("1_mayr0")
+sprite = NodePath("AnimatedSprite2D")
 LeftArea2D = NodePath("LeftArea2D")
 RightArea2D = NodePath("RightArea2D")
+diminish_sound = NodePath("diminish")
+augment_sound = NodePath("augment")
+augmentation_mode = -1
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0501597, 0.0501597)
 sprite_frames = SubResource("SpriteFrames_7lwol")
 animation = &"idle"
 
@@ -34,14 +41,21 @@ animation = &"idle"
 position = Vector2(21, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea2D"]
-position = Vector2(0, 0.5)
+position = Vector2(-13, 1)
 shape = SubResource("RectangleShape2D_4lqy7")
 
 [node name="LeftArea2D" type="Area2D" parent="."]
 position = Vector2(-21, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea2D"]
+position = Vector2(15.5, 1)
 shape = SubResource("RectangleShape2D_g0naq")
+
+[node name="diminish" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_d3x4e")
+
+[node name="augment" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3upm5")
 
 [connection signal="augment" from="." to="." method="_on_augment"]
 [connection signal="diminish" from="." to="." method="_on_diminish"]

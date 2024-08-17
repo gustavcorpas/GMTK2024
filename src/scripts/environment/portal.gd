@@ -15,8 +15,13 @@ enum State {
 	disabled, enabled
 }
 
+@export var sprite: AnimatedSprite2D
+
 @export var LeftArea2D: Area2D
 @export var RightArea2D: Area2D
+
+@export var diminish_sound: AudioStreamPlayer2D
+@export var augment_sound: AudioStreamPlayer2D
 
 @export var max_emit_count: int = -1
 @export var effect_activator: bool = false
@@ -40,6 +45,8 @@ func _ready() -> void:
 	RightArea2D.body_entered.connect(_on_right_area_body_entered)
 	RightArea2D.body_exited.connect(_on_right_area_body_exited)
 	
+func flip():
+	augmentation_mode *= -1
 
 func disable():
 	state = State.disabled
@@ -52,8 +59,13 @@ func emit(direction: Direction, body: Node2D):
 	var mod = direction * augmentation_mode
 	if mod == 1:
 		augment.emit(body)
+		augment_sound.play()
+		print_debug("augment!");
 	elif mod == -1:
 		diminish.emit(body)
+		diminish_sound.play()
+		print_debug("diminish!");
+	
 	usage_count += 1;
 	
 	if max_emit_count < 0: 
@@ -63,22 +75,22 @@ func emit(direction: Direction, body: Node2D):
 	
 
 func _on_left_area_body_entered(body: Node2D) -> void:
-	if on_right == true:
-		emit(Direction.right_to_left, body)
 	on_left = true;
 
 
 func _on_left_area_body_exited(body: Node2D) -> void:
 	on_left = false;
+	if on_right == true:
+		emit(Direction.left_to_right, body)
 	
 	
 
 func _on_right_area_body_entered(body: Node2D) -> void:
-	if on_left == true:
-		emit(Direction.left_to_right, body)
 	on_right = true;
 
 
 
 func _on_right_area_body_exited(body: Node2D) -> void:
 	on_right = false
+	if on_left == true:
+		emit(Direction.right_to_left, body)
