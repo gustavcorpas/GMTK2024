@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 project/assembly_name="New Game Project"
 
+[file_customization]
+
+folder_colors={
+"res://scenes/ui/": "green"
+}
+
 [input]
 
 left={
