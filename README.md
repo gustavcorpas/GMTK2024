@@ -7,6 +7,8 @@ You can find information about the jam at the [itch.io page](https://itch.io/jam
 See the [discord group](https://discord.com/invite/962uRTBH) for chatting (invite)
 or [here](https://discord.com/channels/1274044172021796887/1274044172692881503) (group).
 
+See the [miro](https://miro.com/welcomeonboard/eDd0MHpLMzI0UGNsaWdjTHg2NlpaTWZ3czYwaFJteHc3VzluTW1UamxMRVdqbWJrYm9Rb2JCc2NUUm8xMDB4eHwzNDU4NzY0NTU1ODg5NzE2NTk2fDI=?share_link_id=900305445511) for the online whiteboard.
+
 ### Setup
 
 Navigate to [godot download page](https://godotengine.org/download/) and select:
