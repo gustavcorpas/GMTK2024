@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0ck0e6i26joy"]
+
+[ext_resource type="Script" path="res://scripts/environment/size_portal.gd" id="1_mayr0"]
+[ext_resource type="Texture2D" uid="uid://bldf0xyuyafun" path="res://assets/art/temporary.png" id="2_7joj2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7lwol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7joj2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lqy7"]
+size = Vector2(20, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0naq"]
+size = Vector2(20, 62)
+
+[node name="SizePortal" type="Node2D" node_paths=PackedStringArray("LeftArea2D", "RightArea2D")]
+script = ExtResource("1_mayr0")
+LeftArea2D = NodePath("LeftArea2D")
+RightArea2D = NodePath("RightArea2D")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7lwol")
+animation = &"idle"
+
+[node name="RightArea2D" type="Area2D" parent="."]
+position = Vector2(21, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_4lqy7")
+
+[node name="LeftArea2D" type="Area2D" parent="."]
+position = Vector2(-21, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea2D"]
+shape = SubResource("RectangleShape2D_g0naq")
+
+[connection signal="augment" from="." to="." method="_on_augment"]
+[connection signal="diminish" from="." to="." method="_on_diminish"]
