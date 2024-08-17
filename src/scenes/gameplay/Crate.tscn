@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bonjoi55r1vwf"]
+
+[ext_resource type="Script" path="res://scripts/environment/crate.gd" id="1_1nh7u"]
+[ext_resource type="Texture2D" uid="uid://2fkyynfyax0p" path="res://dogo.png" id="1_x0ly2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3acw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_br3kl"]
+size = Vector2(16, 6)
+
+[node name="Crate" type="RigidBody2D" groups=["crates"]]
+physics_material_override = SubResource("PhysicsMaterial_3acw4")
+inertia = 1.0
+lock_rotation = true
+script = ExtResource("1_1nh7u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 8, 0, 10, -10, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_x0ly2")
+
+[node name="CraterFreezer" type="Area2D" parent="."]
+position = Vector2(0, -10)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CraterFreezer"]
+scale = Vector2(1, 0.1)
+shape = SubResource("RectangleShape2D_br3kl")
+
+[connection signal="body_entered" from="CraterFreezer" to="." method="_on_crater_freezer_body_entered"]
+[connection signal="body_exited" from="CraterFreezer" to="." method="_on_crater_freezer_body_exited"]

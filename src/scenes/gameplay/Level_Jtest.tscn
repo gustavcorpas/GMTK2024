@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://cqivqger1vp2b"]
+[gd_scene load_steps=10 format=4 uid="uid://cqivqger1vp2b"]
 
 [ext_resource type="PackedScene" uid="uid://6m366c2rlmjj" path="res://scenes/gameplay/Player.tscn" id="1_7m3xi"]
 [ext_resource type="PackedScene" uid="uid://bm8mnnsj5amgf" path="res://scenes/gameplay/Goal.tscn" id="2_lgw48"]
 [ext_resource type="Script" path="res://scripts/environment/reset_hazard.gd" id="3_xvhxs"]
 [ext_resource type="Texture2D" uid="uid://bo5ugal013jsi" path="res://assets/art/sci-fi-tileset.png" id="4_ipl5n"]
-[ext_resource type="Script" path="res://scripts/environment/collectible.gd" id="5_btxyb"]
-[ext_resource type="Texture2D" uid="uid://bj3emngfs4ife" path="res://assets/art/Untitled_Artwork.png" id="6_tmgsf"]
+[ext_resource type="PackedScene" uid="uid://ua4nuh7jx6qh" path="res://scenes/gameplay/Collectible.tscn" id="5_foxsw"]
+[ext_resource type="PackedScene" uid="uid://bonjoi55r1vwf" path="res://scenes/gameplay/Crate.tscn" id="7_u5bmw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svs3u"]
 size = Vector2(120, 15)
@@ -51,6 +51,7 @@ texture = ExtResource("4_ipl5n")
 3:2/0 = 0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 3.875, -8, 8)
 5:2/0 = 0
 5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:2/0 = 0
@@ -106,19 +107,20 @@ texture = ExtResource("4_ipl5n")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tan7q")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tdy1c"]
-
 [node name="GameScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_7m3xi")]
 position = Vector2(40, -120)
-collision_layer = 3
+collision_mask = 3
+SPEED = 300.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.565, 1.565)
 
 [node name="Goal" parent="." instance=ExtResource("2_lgw48")]
 position = Vector2(336, -48)
+collision_layer = 0
+collision_mask = 2
 
 [node name="AcidPit" type="Area2D" parent="."]
 position = Vector2(232, 10)
@@ -138,20 +140,8 @@ tile_set = SubResource("TileSet_muob4")
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="Collectible" type="Area2D" parent="Interactables"]
-position = Vector2(-65, -65)
-scale = Vector2(0.01, 0.01)
-script = ExtResource("5_btxyb")
-rotationSpeed = 10
+[node name="Collectible" parent="Interactables" instance=ExtResource("5_foxsw")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactables/Collectible"]
-position = Vector2(0, -200)
-texture = ExtResource("6_tmgsf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Collectible"]
-position = Vector2(0, -200)
-scale = Vector2(75, 75)
-shape = SubResource("CircleShape2D_tdy1c")
+[node name="Crate" parent="Interactables" instance=ExtResource("7_u5bmw")]
 
 [connection signal="body_entered" from="AcidPit" to="AcidPit" method="_on_body_entered"]
-[connection signal="body_entered" from="Interactables/Collectible" to="Interactables/Collectible" method="_on_body_entered"]
