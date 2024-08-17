@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://cqivqger1vp2b"]
+[gd_scene load_steps=13 format=4 uid="uid://cqivqger1vp2b"]
 
 [ext_resource type="PackedScene" uid="uid://6m366c2rlmjj" path="res://scenes/gameplay/Player.tscn" id="1_7m3xi"]
 [ext_resource type="PackedScene" uid="uid://bm8mnnsj5amgf" path="res://scenes/gameplay/Goal.tscn" id="2_lgw48"]
 [ext_resource type="Script" path="res://scripts/environment/reset_hazard.gd" id="3_xvhxs"]
 [ext_resource type="Texture2D" uid="uid://bo5ugal013jsi" path="res://assets/art/sci-fi-tileset.png" id="4_ipl5n"]
 [ext_resource type="PackedScene" uid="uid://ua4nuh7jx6qh" path="res://scenes/gameplay/Collectible.tscn" id="5_foxsw"]
+[ext_resource type="PackedScene" uid="uid://djj8dvhflj7p5" path="res://scenes/gameplay/Lever.tscn" id="7_5ms6r"]
 [ext_resource type="PackedScene" uid="uid://bonjoi55r1vwf" path="res://scenes/gameplay/Crate.tscn" id="7_u5bmw"]
+[ext_resource type="Texture2D" uid="uid://csqjxfs6ukaeo" path="res://assets/art/space ship.png" id="8_dxiwt"]
+[ext_resource type="Script" path="res://scenes/gameplay/lever_triggered.gd" id="9_fio2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svs3u"]
 size = Vector2(120, 15)
@@ -111,8 +114,8 @@ sources/0 = SubResource("TileSetAtlasSource_tan7q")
 
 [node name="Player" parent="." instance=ExtResource("1_7m3xi")]
 position = Vector2(40, -120)
+collision_layer = 2
 collision_mask = 3
-SPEED = 300.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.565, 1.565)
@@ -144,4 +147,12 @@ tile_set = SubResource("TileSet_muob4")
 
 [node name="Crate" parent="Interactables" instance=ExtResource("7_u5bmw")]
 
+[node name="Lever" parent="Interactables" instance=ExtResource("7_5ms6r")]
+
+[node name="LeverTrigger" type="Sprite2D" parent="Interactables"]
+position = Vector2(158, -119)
+texture = ExtResource("8_dxiwt")
+script = ExtResource("9_fio2x")
+
 [connection signal="body_entered" from="AcidPit" to="AcidPit" method="_on_body_entered"]
+[connection signal="lever_triggered" from="Interactables/Lever" to="Interactables/LeverTrigger" method="_on_lever_lever_triggered"]
