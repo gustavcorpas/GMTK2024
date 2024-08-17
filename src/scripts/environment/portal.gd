@@ -45,8 +45,17 @@ func _ready() -> void:
 	RightArea2D.body_entered.connect(_on_right_area_body_entered)
 	RightArea2D.body_exited.connect(_on_right_area_body_exited)
 	
+	if augmentation_mode == Augmentation_Mode.right_to_left:
+		sprite.flip_v = true
+	else:
+		sprite.flip_v = false
+	
 func flip():
 	augmentation_mode *= -1
+	if augmentation_mode == Augmentation_Mode.right_to_left:
+		sprite.flip_v = true
+	else:
+		sprite.flip_v = false
 
 func disable():
 	state = State.disabled
