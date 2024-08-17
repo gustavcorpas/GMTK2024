@@ -13,6 +13,12 @@ Navigate to [godot download page](https://godotengine.org/download/) and select:
 
 __Godot Engine - .NET v. 4.3__
 
+1) Clone the repo by running `git clone https://github.com/gustavcorpas/GMTK2024.git`
+
+2) Open Godot and navigate to the GMTK2024 folder.
+
+3) Select the `./src` folder and press import.
+
 ### Meet the Team
 
 
