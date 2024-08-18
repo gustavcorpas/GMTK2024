@@ -64,7 +64,7 @@ func disable():
 func emit(direction: Direction, body: Node2D):
 	if state == State.disabled:
 		return
-		
+	usage_count += 1;
 	var mod = direction * augmentation_mode
 	if mod == 1:
 		augment.emit(body)
@@ -74,8 +74,6 @@ func emit(direction: Direction, body: Node2D):
 		diminish.emit(body)
 		diminish_sound.play()
 		print_debug("diminish!");
-	
-	usage_count += 1;
 	
 	if max_emit_count < 0: 
 		return # disable max emit count

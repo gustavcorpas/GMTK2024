@@ -1,5 +1,13 @@
 extends Portal
 
+@onready var count: RichTextLabel = $count
+
+func update_text():
+	if max_emit_count > 0:
+		count.text = "%s/%s" % [usage_count, max_emit_count]
+		
+
+
 func _on_augment(body) -> void:
 	if effect_activator == true && body.has_method("size_up"):
 		body.size_up()
@@ -8,7 +16,8 @@ func _on_augment(body) -> void:
 			connection.size_up()
 		else:
 			print_debug("MISSING SIZE UP METHOD!")
-			
+	
+	update_text()
 
 
 func _on_diminish(body) -> void:
@@ -19,4 +28,9 @@ func _on_diminish(body) -> void:
 				connection.size_down()
 			else:
 				print_debug("MISSING SIZE DOWN METHOD!")
-			
+		
+		update_text()
+
+
+func _on_ready() -> void:
+	update_text()

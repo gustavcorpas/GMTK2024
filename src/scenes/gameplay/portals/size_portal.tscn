@@ -1388,5 +1388,11 @@ stream = ExtResource("3_d3x4e")
 [node name="augment" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_3upm5")
 
+[node name="count" type="RichTextLabel" parent="."]
+offset_left = 2.0
+offset_top = -31.0
+offset_right = 42.0
+offset_bottom = 9.0
+
 [connection signal="augment" from="." to="." method="_on_augment"]
 [connection signal="diminish" from="." to="." method="_on_diminish"]

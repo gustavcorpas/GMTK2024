@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bd0iyup1lv6yy"]
 
-[ext_resource type="Texture2D" uid="uid://bldf0xyuyafun" path="res://assets/art/temporary.png" id="1_iko87"]
 [ext_resource type="Script" path="res://scripts/environment/box_throwable.gd" id="1_ugajs"]
+[ext_resource type="Texture2D" uid="uid://bxjy36n0fq4ar" path="res://assets/art/crate-light.png" id="2_e8qcv"]
 [ext_resource type="Script" path="res://scripts/environment/throwable_component.gd" id="2_jttuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg4mw"]
@@ -18,8 +18,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_gg4mw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_iko87")
+texture = ExtResource("2_e8qcv")
 
 [node name="ThrowableComponent" type="Node" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("2_jttuy")
