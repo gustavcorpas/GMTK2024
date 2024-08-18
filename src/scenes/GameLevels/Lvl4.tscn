@@ -1,51 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://ra6nd4tr7uk6"]
+[gd_scene load_steps=10 format=4 uid="uid://ra6nd4tr7uk6"]
 
 [ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_ps04u"]
-[ext_resource type="Texture2D" uid="uid://djt6cl1olfppm" path="res://assets/art/tileset-platform.png" id="2_p6s2b"]
+[ext_resource type="TileSet" uid="uid://dum4sxsbwrqu0" path="res://scenes/GameLevels/LvlTileSet.tres" id="2_m0x5b"]
 [ext_resource type="Texture2D" uid="uid://bo5ugal013jsi" path="res://assets/art/sci-fi-tileset.png" id="3_tp5ah"]
 [ext_resource type="PackedScene" uid="uid://dkfp15nfsv3vq" path="res://scenes/gameplay/Goal.tscn" id="4_wl5bv"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jbme"]
-texture = ExtResource("2_p6s2b")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-5:0/0 = 0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-4:1/0 = 0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-5:1/0 = 0
-5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_xndyq"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_4jbme")
+[ext_resource type="PackedScene" uid="uid://d0ck0e6i26joy" path="res://scenes/gameplay/portals/size_portal.tscn" id="5_cyyoe"]
+[ext_resource type="PackedScene" uid="uid://bonjoi55r1vwf" path="res://scenes/gameplay/Crate.tscn" id="6_qrlih"]
+[ext_resource type="PackedScene" uid="uid://djj8dvhflj7p5" path="res://scenes/gameplay/Lever.tscn" id="7_jdav4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tan7q"]
 texture = ExtResource("3_tp5ah")
@@ -156,7 +117,7 @@ zoom = Vector2(1.565, 1.565)
 
 [node name="Platform layer" type="TileMapLayer" parent="TileMapLayer"]
 tile_map_data = PackedByteArray("AAD3/wIAAAACAAEAAAALAAIAAAAAAAEAAAD2/wIAAAABAAEAAAD1/wIAAAABAAEAAAD0/wIAAAABAAEAAAAFAP//AAAAAAEAAAAFAAAAAAAAAAIAAAAGAP//AAABAAEAAAAGAAAAAAABAAIAAAAHAP//AAABAAEAAAAHAAAAAAABAAIAAAAFAP7/AAAAAAEAAAAGAP7/AAABAAEAAAAHAP7/AAABAAEAAAAFAP3/AAAAAAEAAAAGAP3/AAABAAEAAAAHAP3/AAABAAEAAAAFAPz/AAAAAAEAAAAGAPz/AAABAAEAAAAHAPz/AAABAAEAAAAFAPv/AAAAAAEAAAAGAPv/AAABAAEAAAAHAPv/AAABAAEAAAAFAPr/AAAAAAEAAAAGAPr/AAABAAEAAAAHAPr/AAABAAEAAAAFAPn/AAAFAAAAAAAGAPn/AAABAAEAAAAHAPn/AAABAAEAAAAIAP3/AAABAAEAAAAJAP3/AAABAAEAAAAKAP3/AAABAAEAAAALAP3/AAABAAEAAAAIAPz/AAABAAEAAAAJAPz/AAABAAEAAAAKAPz/AAABAAEAAAALAPz/AAABAAEAAAAMAPz/AAABAAEAAAAIAPv/AAABAAEAAAAIAPn/AAABAAEAAAAIAPr/AAABAAEAAAAJAPr/AAABAAEAAAAKAPr/AAABAAEAAAALAPr/AAABAAEAAAAKAPn/AAABAAEAAAAJAPv/AAABAAEAAAAKAPv/AAABAAEAAAALAPv/AAABAAEAAAAMAPr/AAABAAEAAAAMAPn/AAABAAEAAAALAPn/AAABAAEAAAAJAPn/AAABAAEAAAAMAPv/AAABAAEAAAAMAP3/AAABAAEAAAD0/wMAAAABAAEAAAD1/wMAAAABAAEAAAD2/wMAAAABAAEAAAD3/wMAAAACAAEAAAALAAQAAAAFAAEAAAALAAMAAAAAAAEAAAD+/wUAAAABAAEAAAD9/wUAAAABAAEAAAD8/wUAAAABAAEAAAD3/wQAAAAEAAEAAAD2/wQAAAABAAEAAAD1/wQAAAABAAEAAAD0/wQAAAABAAEAAAD6/wUAAAABAAEAAAD7/wUAAAABAAEAAAD//wUAAAABAAEAAAAAAAUAAAACAAEAAAD5/wUAAAABAAEAAAAFAAUAAAAAAAAAAAD//wYAAAABAAEAAAAAAAYAAAAEAAEAAAABAAYAAAABAAAAAAACAAYAAAABAAAAAAADAAYAAAABAAAAAAAEAAYAAAABAAAAAAAFAAYAAAAFAAEAAAAGAAYAAAABAAEAAAAHAAYAAAABAAEAAAAIAAYAAAABAAEAAAAJAAYAAAABAAEAAAAKAAYAAAABAAEAAAALAAYAAAABAAEAAAALAAUAAAABAAEAAAAKAAUAAAABAAEAAAAJAAUAAAABAAEAAAAIAAUAAAABAAEAAAAHAAUAAAABAAEAAAAGAAUAAAAFAAEAAAD+/wYAAAABAAEAAAD9/wYAAAABAAEAAAD8/wYAAAABAAEAAAD7/wYAAAABAAEAAAD6/wYAAAABAAEAAAD5/wYAAAABAAEAAAD4/wYAAAABAAEAAAD3/wYAAAABAAEAAAD2/wYAAAABAAEAAAD1/wYAAAABAAEAAAD0/wYAAAABAAEAAAD0/wUAAAABAAEAAAD1/wUAAAABAAEAAAD2/wUAAAABAAEAAAD3/wUAAAABAAEAAAD4/wUAAAABAAEAAAD0/wEAAAABAAEAAAD0/wAAAAAEAAEAAAD0////AAACAAEAAAD0//7/AAACAAEAAAD0//3/AAACAAEAAAD0//z/AAACAAEAAAD0//v/AAACAAEAAAD0//r/AAACAAEAAAD0//n/AAAEAAAAAAD1//n/AAABAAIAAAD2//n/AAABAAIAAAD3//n/AAABAAIAAAD4//n/AAABAAIAAAD5//n/AAABAAIAAAD6//n/AAABAAIAAAD7//n/AAABAAIAAAD8//n/AAAFAAAAAAD9//n/AAABAAEAAAD+//n/AAAEAAAAAAD///n/AAABAAIAAAAAAPn/AAABAAIAAAABAPn/AAABAAIAAAACAPn/AAABAAIAAAADAPn/AAABAAIAAAAEAPn/AAABAAIAAAALAAEAAAAAAAEAAAALAAAAAAAFAAAAAAALAP//AAABAAEAAAALAP7/AAABAAEAAAD8//r/AAAAAAEAAAD+//r/AAACAAEAAAD9//r/AAABAAEAAAD8//v/AAAAAAEAAAD9//v/AAABAAEAAAD+//v/AAACAAEAAAD8//z/AAAAAAEAAAD9//3/AAABAAEAAAD+//3/AAACAAEAAAD+//z/AAACAAEAAAD9//z/AAABAAEAAAD9//7/AAABAAEAAAD+//7/AAACAAEAAAD8////AAAAAAEAAAD8//7/AAAAAAEAAAD8//3/AAAAAAEAAAD+////AAACAAEAAAD9////AAABAAEAAAD3/wEAAAACAAEAAAD2/wEAAAABAAEAAAD1/wEAAAABAAEAAAD8/wEAAAAAAAIAAAD9/wEAAAABAAIAAAD8/wAAAAAAAAEAAAD9/wAAAAABAAEAAAD+/wAAAAACAAEAAAD+/wEAAAACAAIAAAD4/wQAAAABAAAAAAD5/wQAAAABAAAAAAD6/wQAAAABAAAAAAD7/wQAAAABAAAAAAD8/wQAAAABAAAAAAD9/wQAAAABAAAAAAD+/wQAAAABAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAABAAAAAAAAAAQAAAACAAAAAAD//wQAAAABAAAAAAAIAAQAAAABAAAAAAAJAAQAAAABAAAAAAAKAAQAAAABAAAAAAAIAP//AAABAAEAAAAIAAAAAAABAAIAAAAJAP//AAABAAEAAAAJAAAAAAABAAIAAAAKAP//AAABAAEAAAAKAAAAAAABAAIAAAAIAP7/AAABAAEAAAAJAP7/AAABAAEAAAAKAP7/AAABAAEAAAAMAP7/AAABAAEAAAAMAP//AAABAAEAAAAMAAAAAAABAAEAAAAMAAEAAAABAAEAAAAMAAIAAAABAAEAAAAMAAMAAAABAAEAAAAMAAQAAAABAAEAAAAMAAUAAAABAAEAAAAMAAYAAAABAAEAAAD3/wAAAAACAAAAAAD2/wAAAAABAAAAAAD1/wAAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_xndyq")
+tile_set = ExtResource("2_m0x5b")
 
 [node name="Layer0" type="TileMapLayer" parent="TileMapLayer"]
 visible = false
@@ -168,3 +129,15 @@ tile_set = SubResource("TileSet_muob4")
 [node name="Goal" parent="." instance=ExtResource("4_wl5bv")]
 position = Vector2(-304, -24)
 scenePath = "res://scenes/gameplay/Level2.tscn"
+
+[node name="SizePortal" parent="." instance=ExtResource("5_cyyoe")]
+position = Vector2(-80, 96)
+
+[node name="Crate" parent="." instance=ExtResource("6_qrlih")]
+position = Vector2(256, 104)
+
+[node name="Crate2" parent="." instance=ExtResource("6_qrlih")]
+position = Vector2(304, 104)
+
+[node name="Lever" parent="." instance=ExtResource("7_jdav4")]
+position = Vector2(95, 165)
