@@ -11,5 +11,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_master_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0, value)
+func _on_master_value_changed(value: float):
+	# AudioServer.set_bus_volume_db(0, value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
