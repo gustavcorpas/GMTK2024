@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
 @onready var sizeable_component: SizeableComponent = $SizeableComponent
+@onready var regular: Sprite2D = %Regular
 
-@export var SPEED = 100.0
-@export var JUMP_VELOCITY = -400.0
+@export var SPEEDS = {"smol": 100, "regular": 200, "big": 300}
+@export var JUMP_VELOCITIES = {"smol": -200, "regular": -300, "big": -400}
+
+const COLLIDER_LERP_SPEED = 10.0
+
+var JUMP_VELOCITY = 0
+var SPEED = 0
 
 const PUSH_FORCE = 75
 const MAX_VELOCITY = 150
@@ -11,39 +17,27 @@ const MAX_VELOCITY = 150
 enum Direction {right = 1, left = -1}
 var known_direction := Direction.right
 
-var big = preload("res://assets/art/BigAlien.png")
-var reg = preload("res://assets/art/RegAlien.png")
-var smol = preload("res://assets/art/MiniAlien.png")
 
+var target_size_h = 10
+var target_size_v = 50
+
+signal node_ready
 
 func get_facing_direction():
 	return known_direction
-
-func make_smol():
-	pass
-	# %Collider.shape.height = 14
-	# %Regular.texture = smol
-	# JUMP_VELOCITY = -200.0
 	
-func make_regular():
-	pass
-	# %Collider.shape.height = 30
-	# %Regular.texture = reg
-	# JUMP_VELOCITY = -300.0
+func make_size(res: SizeResource):
+	JUMP_VELOCITY = JUMP_VELOCITIES.get(res.name)
+	SPEED = SPEEDS.get(res.name)
+	target_size_h = res.target_size_h
+	target_size_v = res.target_size_v
+	regular.set_texture(res.sprite)
 
-func make_big():
-	pass
-	# %Collider.shape.height = 46
-	# %Regular.texture = big
-	# JUMP_VELOCITY = -400.0
-	
 func _on_sizeable_component_size(res) -> void:
-	print("got: " + res.name)
-	return
 	match res.name:
-		"big": make_big()
-		"regular": make_regular()
-		"smol": make_smol()
+		"big": make_size(res)
+		"regular": make_size(res)
+		"smol": make_size(res)
 		_: print_debug(res.name + "is not supported by player script!")
 
 func _input(event: InputEvent) -> void:
@@ -54,6 +48,7 @@ func _input(event: InputEvent) -> void:
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	%Collider.shape.height = lerp(%Collider.shape.height, float(target_size_v), delta * COLLIDER_LERP_SPEED)
 		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
