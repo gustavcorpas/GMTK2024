@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=4 uid="uid://ra6nd4tr7uk6"]
 
 [ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_ps04u"]
-[ext_resource type="TileSet" uid="uid://dum4sxsbwrqu0" path="res://scenes/GameLevels/LvlTileSet.tres" id="2_m0x5b"]
+[ext_resource type="TileSet" uid="uid://bblkv7kqmp63w" path="res://scenes/GameLevels/LvlTileSet.tres" id="2_m0x5b"]
 [ext_resource type="Texture2D" uid="uid://bo5ugal013jsi" path="res://assets/art/sci-fi-tileset.png" id="3_tp5ah"]
 [ext_resource type="PackedScene" uid="uid://dkfp15nfsv3vq" path="res://scenes/gameplay/Goal.tscn" id="4_wl5bv"]
 [ext_resource type="PackedScene" uid="uid://d0ck0e6i26joy" path="res://scenes/gameplay/portals/size_portal.tscn" id="5_cyyoe"]
-[ext_resource type="PackedScene" uid="uid://bonjoi55r1vwf" path="res://scenes/gameplay/Crate.tscn" id="6_qrlih"]
-[ext_resource type="PackedScene" uid="uid://ce8i8s62pnh4v" path="res://scenes/gameplay/Lever.tscn" id="7_jdav4"]
+[ext_resource type="PackedScene" uid="uid://ce8i8s62pnh4v" path="res://scenes/gameplay/lever.tscn" id="7_jdav4"]
+[ext_resource type="PackedScene" uid="uid://bd0iyup1lv6yy" path="res://scenes/gameplay/box_throwable.tscn" id="7_pjm6k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tan7q"]
 texture = ExtResource("3_tp5ah")
@@ -130,14 +130,16 @@ tile_set = SubResource("TileSet_muob4")
 position = Vector2(-304, -24)
 scenePath = "res://scenes/gameplay/Level2.tscn"
 
-[node name="SizePortal" parent="." instance=ExtResource("5_cyyoe")]
+[node name="SizePortal" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("5_cyyoe")]
 position = Vector2(-80, 96)
+connections = [NodePath("../Player")]
 
-[node name="Crate" parent="." instance=ExtResource("6_qrlih")]
-position = Vector2(256, 104)
+[node name="Lever" parent="." node_paths=PackedStringArray("portal_connections") instance=ExtResource("7_jdav4")]
+position = Vector2(96, 184)
+portal_connections = [NodePath("../SizePortal")]
 
-[node name="Crate2" parent="." instance=ExtResource("6_qrlih")]
-position = Vector2(304, 104)
+[node name="BoxThrowable2" parent="." instance=ExtResource("7_pjm6k")]
+position = Vector2(296, 80)
 
-[node name="Lever" parent="." instance=ExtResource("7_jdav4")]
-position = Vector2(95, 165)
+[node name="BoxThrowable" parent="." instance=ExtResource("7_pjm6k")]
+position = Vector2(224, 80)

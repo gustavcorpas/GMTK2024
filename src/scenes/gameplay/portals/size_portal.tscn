@@ -1350,6 +1350,7 @@ size = Vector2(12, 30)
 size = Vector2(13, 30)
 
 [node name="SizePortal" type="Node2D" node_paths=PackedStringArray("sprite", "LeftArea2D", "RightArea2D", "diminish_sound", "augment_sound")]
+scale = Vector2(2, 2)
 script = ExtResource("1_mayr0")
 sprite = NodePath("AnimatedSprite2D")
 LeftArea2D = NodePath("LeftArea2D")

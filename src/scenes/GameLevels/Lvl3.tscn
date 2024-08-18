@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=4 uid="uid://b7sqoddi6geq4"]
 
 [ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_62ixk"]
-[ext_resource type="TileSet" uid="uid://dum4sxsbwrqu0" path="res://scenes/GameLevels/LvlTileSet.tres" id="2_5dqfy"]
+[ext_resource type="TileSet" uid="uid://bblkv7kqmp63w" path="res://scenes/GameLevels/LvlTileSet.tres" id="2_5dqfy"]
 [ext_resource type="Texture2D" uid="uid://bo5ugal013jsi" path="res://assets/art/sci-fi-tileset.png" id="3_jlhbh"]
 [ext_resource type="PackedScene" uid="uid://dkfp15nfsv3vq" path="res://scenes/gameplay/Goal.tscn" id="4_kuwqv"]
-[ext_resource type="PackedScene" uid="uid://bonjoi55r1vwf" path="res://scenes/gameplay/Crate.tscn" id="5_770qc"]
 [ext_resource type="PackedScene" uid="uid://d0ck0e6i26joy" path="res://scenes/gameplay/portals/size_portal.tscn" id="6_ofiy8"]
+[ext_resource type="PackedScene" uid="uid://bd0iyup1lv6yy" path="res://scenes/gameplay/box_throwable.tscn" id="6_un50q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tan7q"]
 texture = ExtResource("3_jlhbh")
@@ -129,8 +129,9 @@ tile_set = SubResource("TileSet_muob4")
 position = Vector2(312, 40)
 scenePath = "res://scenes/GameLevels/Lvl4.tscn"
 
-[node name="Crate" parent="." instance=ExtResource("5_770qc")]
-position = Vector2(88, -32)
-
-[node name="SizePortal" parent="." instance=ExtResource("6_ofiy8")]
+[node name="SizePortal" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("6_ofiy8")]
 position = Vector2(-96, 32)
+connections = [NodePath("../Player")]
+
+[node name="BoxThrowable" parent="." instance=ExtResource("6_un50q")]
+position = Vector2(80, 24)

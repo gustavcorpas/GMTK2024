@@ -35,5 +35,6 @@ tile_set = ExtResource("4_ccf4t")
 position = Vector2(312, 32)
 scenePath = "res://scenes/GameLevels/Lvl2.tscn"
 
-[node name="SizePortal" parent="." instance=ExtResource("5_d3lc4")]
+[node name="SizePortal" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("5_d3lc4")]
 position = Vector2(-96, -64)
+connections = [NodePath("../Player")]
