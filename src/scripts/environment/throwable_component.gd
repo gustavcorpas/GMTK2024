@@ -3,15 +3,20 @@ extends Node
 class_name ThrowableComponent
 
 const FOLLOW_SPEED = 10.0
+const THROWING_SPEED = 2.0
 @export var HOVER_OFFSET = Vector2(30, -10)
 
 @export var throw_force: int = 200
 @export var body: Node2D
+@export var debug_mode: bool = false
 
 signal throw_start
 signal throw_done
 
 @onready var player = get_tree().current_scene.get_node("Player")
+
+var ray
+var line
 
 func _ready() -> void:
 	assert(body != null, "ThrowableComponent has missing body")
@@ -26,10 +31,11 @@ var throwing := false
 var throw_to: Vector2
 
 
+
 func _process(delta: float) -> void:
 	if throwing:
-		body.position = body.position.lerp(throw_to, delta * FOLLOW_SPEED)
-		if (body.position - throw_to).length() < 1:
+		body.position = body.position.lerp(throw_to, delta * THROWING_SPEED)
+		if (body.position - throw_to).length() < 10:
 			throwing = false;
 			throw_done.emit()
 	elif picked_up:
@@ -44,6 +50,10 @@ func disable_collision(): # todo: do properly.
 func enable_collision(): #todo: do properly.
 	body.collision_mask = 1;
 	body.collision_layer = 1;
+
+func stop_throw():
+	throwing = false
+	throw_done.emit()
 
 # player picks up item
 func pick_up():
