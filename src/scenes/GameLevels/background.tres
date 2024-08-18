@@ -1,0 +1,14 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dvim5v2pkxs7q"]
+
+[ext_resource type="Texture2D" uid="uid://0g7tycu5mna1" path="res://assets/art/background.png" id="1_t0ttw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq2qx"]
+resource_name = "Background"
+texture = ExtResource("1_t0ttw")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(8, 9)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(256, 288)
+sources/0 = SubResource("TileSetAtlasSource_jq2qx")
