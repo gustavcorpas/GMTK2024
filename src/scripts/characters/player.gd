@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var step_large: AudioStreamPlayer2D = $step_large
 @onready var step_reg: AudioStreamPlayer2D = $step_reg
 @onready var step_smol: AudioStreamPlayer2D = $step_smol
+@onready var jump: AudioStreamPlayer2D = $jump
 
 @export var SPEEDS = {"smol": 100, "regular": 200, "big": 300}
 @export var JUMP_VELOCITIES = {"smol": -300, "regular": -450, "big": -500}
@@ -47,7 +48,9 @@ func _process(delta: float) -> void:
 		if target_step != null and not target_step.playing:
 			target_step.pitch_scale = 1 + randf_range(-0.1, 0.1)
 			target_step.play()
-
+	elif target_step != null:
+		target_step.stop()
+		
 func get_facing_direction():
 	return known_direction
 	
@@ -91,6 +94,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
