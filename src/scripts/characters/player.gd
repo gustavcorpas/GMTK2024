@@ -4,6 +4,10 @@ extends CharacterBody2D
 @onready var regular: Sprite2D = %Regular
 @onready var sprite: AnimatedSprite2D = %Sprite
 
+@onready var step_large: AudioStreamPlayer2D = $step_large
+@onready var step_reg: AudioStreamPlayer2D = $step_reg
+@onready var step_smol: AudioStreamPlayer2D = $step_smol
+
 @export var SPEEDS = {"smol": 100, "regular": 200, "big": 300}
 @export var JUMP_VELOCITIES = {"smol": -300, "regular": -450, "big": -500}
 
@@ -24,6 +28,7 @@ var known_direction := Direction.right
 
 var target_size_h = 10
 var target_size_v = 50
+var target_step = step_reg
 
 var sizeName = "regular"
 var idleName = "RegIdle"
@@ -36,6 +41,12 @@ func _ready():
 	node_ready.emit()
 	instantiated = true
 	sizeable_component.init(start_size)
+	
+func _process(delta: float) -> void:
+	if velocity.length() > 0 and is_on_floor():
+		if target_step != null and not target_step.playing:
+			target_step.pitch_scale = 1 + randf_range(-0.1, 0.1)
+			target_step.play()
 
 func get_facing_direction():
 	return known_direction
@@ -45,6 +56,7 @@ func make_size(res: SizeResource):
 	SPEED = SPEEDS.get(res.name)
 	target_size_h = res.target_size_h
 	target_size_v = res.target_size_v
+	
 	sizeName = res.name
 	if not instantiated:
 		await node_ready
@@ -52,9 +64,9 @@ func make_size(res: SizeResource):
 
 func _on_sizeable_component_size(res) -> void:
 	match res.name:
-		"big": make_size(res)
-		"regular": make_size(res)
-		"smol": make_size(res)
+		"big": make_size(res); target_step = step_large
+		"regular": make_size(res); target_step = step_reg
+		"smol": make_size(res); target_step = step_smol
 		_: print_debug(res.name + "is not supported by player script!")
 
 func _input(event: InputEvent) -> void:
