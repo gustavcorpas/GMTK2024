@@ -17,7 +17,7 @@ func _on_start_game_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	print("Setting pressed")
-	get_tree()
+	get_tree().change_scene_to_file("res://scenes/gameplay/Settings.tscn")
 
 
 func _on_exit_game_pressed() -> void:
