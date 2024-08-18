@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bob4k2hlei7k3"]
+[gd_scene load_steps=15 format=3 uid="uid://bob4k2hlei7k3"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_put57"]
 [ext_resource type="Texture2D" uid="uid://p8r2ivlgthi7" path="res://assets/art/RegAlien.png" id="2_xc7cm"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://scenes/gameplay/portals/shared/SizableComponent.gd" id="5_lr15i"]
 [ext_resource type="Script" path="res://scenes/gameplay/portals/shared/SizeResource.gd" id="6_lriv2"]
 [ext_resource type="SpriteFrames" uid="uid://d0nkhrjbfjbbl" path="res://assets/art/MiniWalk.tres" id="7_xr7ya"]
+[ext_resource type="AudioStream" uid="uid://cxoin0kyxw6xc" path="res://assets/audio/Footsteps/Large/Step_Large.wav" id="8_fe240"]
+[ext_resource type="AudioStream" uid="uid://bp3cgxcmen1n" path="res://assets/audio/Footsteps/Regular/Step_Regular.wav" id="9_qogla"]
+[ext_resource type="AudioStream" uid="uid://bbdp72qmnckl0" path="res://assets/audio/Footsteps/Micro/Step_Micro.wav" id="10_0xvfb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ljh"]
 radius = 7.0
@@ -59,5 +62,17 @@ sprite_frames = ExtResource("7_xr7ya")
 animation = &"bigIdle"
 autoplay = "smolIdle"
 frame_progress = 0.71864
+
+[node name="step_large" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fe240")
+volume_db = 5.0
+pitch_scale = 3.08
+
+[node name="step_reg" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_qogla")
+
+[node name="step_smol" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_0xvfb")
+volume_db = -5.0
 
 [connection signal="size" from="SizeableComponent" to="." method="_on_sizeable_component_size"]
