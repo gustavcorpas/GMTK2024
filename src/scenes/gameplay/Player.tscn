@@ -56,7 +56,8 @@ debug_mode = true
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = ExtResource("7_xr7ya")
-animation = &"regularWalk"
+animation = &"bigIdle"
 autoplay = "smolIdle"
+frame_progress = 0.71864
 
 [connection signal="size" from="SizeableComponent" to="." method="_on_sizeable_component_size"]

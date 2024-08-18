@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dvim5v2pkxs7q" path="res://scenes/GameLevels/background.tres" id="2_ey3nc"]
 [ext_resource type="TileSet" uid="uid://bblkv7kqmp63w" path="res://scenes/GameLevels/LvlTileSet.tres" id="2_nqt53"]
 [ext_resource type="PackedScene" uid="uid://dkfp15nfsv3vq" path="res://scenes/gameplay/Goal.tscn" id="4_aq3h4"]
-[ext_resource type="PackedScene" uid="uid://ce8i8s62pnh4v" path="res://scenes/gameplay/Lever.tscn" id="5_bn5ou"]
+[ext_resource type="PackedScene" uid="uid://ce8i8s62pnh4v" path="res://scenes/gameplay/lever.tscn" id="5_bn5ou"]
 [ext_resource type="PackedScene" uid="uid://d0ck0e6i26joy" path="res://scenes/gameplay/portals/size_portal.tscn" id="6_vvwsl"]
 
 [node name="GameScene" type="Node2D"]
