@@ -15,39 +15,36 @@ height = 14.0
 script = ExtResource("6_lriv2")
 name = "smol"
 sprite = ExtResource("4_o5j66")
-target_size_h = 10
-target_size_v = 10
+target_size_h = 4.0
+target_size_v = 7.9
 
 [sub_resource type="Resource" id="Resource_4aemi"]
 script = ExtResource("6_lriv2")
 name = "regular"
 sprite = ExtResource("2_xc7cm")
-target_size_h = 10
-target_size_v = 20
+target_size_h = 4.0
+target_size_v = 15.9
 
 [sub_resource type="Resource" id="Resource_rjlqn"]
 script = ExtResource("6_lriv2")
 name = "big"
 sprite = ExtResource("3_iubfk")
-target_size_h = 10
-target_size_v = 30
+target_size_h = 4.0
+target_size_v = 23.9
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_put57")
 
 [node name="Regular" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -8)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_xc7cm")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -8)
+scale = Vector2(2, 4)
 shape = SubResource("CapsuleShape2D_h1ljh")
 
 [node name="SizeableComponent" type="Node2D" parent="."]
-position = Vector2(0, -10)
 script = ExtResource("5_lr15i")
 sizes = Array[ExtResource("6_lriv2")]([SubResource("Resource_3xyk5"), SubResource("Resource_4aemi"), SubResource("Resource_rjlqn")])
 current_size_index = 1

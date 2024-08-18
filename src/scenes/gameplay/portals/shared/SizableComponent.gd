@@ -8,6 +8,8 @@ class_name SizeableComponent
 @export var exlude_layers: Array[int] = []
 @export var debug_mode: bool = false
 
+const PADDING = 10
+
 signal size
 
 var ray_up: RayCast2D
@@ -22,6 +24,10 @@ var line_right: Line2D
 
 enum Colliding {left, up, right, down}
 var colliding = [0, 0, 0, 0]	
+
+func init(size_index):
+	current_size_index = size_index
+	size.emit(sizes[current_size_index])
 
 func create_ray():
 	var ray = RayCast2D.new()
@@ -55,17 +61,16 @@ func _ready():
 	line_left = create_line()
 	line_right = create_line()
 	
-	size.emit(sizes[current_size_index])
-	
 
 func _process(delta: float):
 	if not debug_mode: return
 	colliding = [0, 0, 0, 0]
 	var current_size = sizes[current_size_index]
-	process_ray(ray_up, line_up, Vector2(0, -current_size.target_size_v), func up(col): colliding[Colliding.up] = 1)
-	process_ray(ray_down, line_down, Vector2(0, current_size.target_size_v), func up(col): colliding[Colliding.down] = 1)
-	process_ray(ray_left, line_left, Vector2(-current_size.target_size_h, 0), func up(col): colliding[Colliding.left] = 1)
-	process_ray(ray_right, line_right, Vector2(current_size.target_size_h, 0), func up(col): colliding[Colliding.right] = 1)
+	process_ray(ray_up, line_up, Vector2(0, -current_size.target_size_v * 2 - PADDING), func up(col): colliding[Colliding.up] = 1)
+	process_ray(ray_down, line_down, Vector2(0, current_size.target_size_v * 2 + PADDING), func up(col): colliding[Colliding.down] = 1)
+	
+	process_ray(ray_left, line_left, Vector2(-current_size.target_size_h * 2 - PADDING, 0), func up(col): colliding[Colliding.left] = 1)
+	process_ray(ray_right, line_right, Vector2(current_size.target_size_h * 2 + PADDING, 0), func up(col): colliding[Colliding.right] = 1)
 
 func try_size_up():
 	if not valid_state_change(1): return
@@ -93,14 +98,14 @@ func can_scale_in_space(change: int):
 
 func can_scale_in_space_h(target: SizeResource):
 	var colliding = [0, 0, 0, 0]
-	process_ray(ray_left, line_left, Vector2(-target.target_size_h, 0), func up(col): colliding[Colliding.left] = 1)
-	process_ray(ray_right, line_right, Vector2(target.target_size_h, 0), func up(col): colliding[Colliding.right] = 1)
+	process_ray(ray_left, line_left, Vector2(-target.target_size_h * 2 - PADDING, 0), func up(col): colliding[Colliding.left] = 1)
+	process_ray(ray_right, line_right, Vector2(target.target_size_h * 2 + PADDING, 0), func up(col): colliding[Colliding.right] = 1)
 	if colliding[Colliding.left] && colliding[Colliding.right]: return false
 	return true
 	
 func can_scale_in_space_v(target: SizeResource):
 	var colliding = [0, 0, 0, 0]
-	process_ray(ray_up, line_up, Vector2(0, -target.target_size_v), func up(col): colliding[Colliding.up] = 1)
-	process_ray(ray_down, line_down, Vector2(0, target.target_size_v), func up(col): colliding[Colliding.down] = 1)
+	process_ray(ray_up, line_up, Vector2(0, -target.target_size_v * 2 - PADDING), func up(col): colliding[Colliding.up] = 1)
+	process_ray(ray_down, line_down, Vector2(0, target.target_size_v * 2 + PADDING), func up(col): colliding[Colliding.down] = 1)
 	if colliding[Colliding.down] && colliding[Colliding.up]: return false
 	return true

@@ -6,6 +6,9 @@ extends CharacterBody2D
 @export var SPEEDS = {"smol": 100, "regular": 200, "big": 300}
 @export var JUMP_VELOCITIES = {"smol": -200, "regular": -300, "big": -400}
 
+@export var start_size: int = 0
+
+
 const COLLIDER_LERP_SPEED = 10.0
 
 var JUMP_VELOCITY = 0
@@ -23,8 +26,11 @@ var target_size_v = 50
 
 signal node_ready
 
+var instantiated = false
 func _ready():
 	node_ready.emit()
+	instantiated = true
+	sizeable_component.init(start_size)
 
 func get_facing_direction():
 	return known_direction
@@ -34,7 +40,8 @@ func make_size(res: SizeResource):
 	SPEED = SPEEDS.get(res.name)
 	target_size_h = res.target_size_h
 	target_size_v = res.target_size_v
-	await node_ready
+	if not instantiated:
+		await node_ready
 	regular.set_texture(res.sprite)
 
 func _on_sizeable_component_size(res) -> void:
