@@ -131,6 +131,7 @@ scenePath = "res://scenes/GameLevels/Lvl4.tscn"
 
 [node name="SizePortal" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("6_ofiy8")]
 position = Vector2(-96, 32)
+augmentation_mode = 1
 connections = [NodePath("../Player")]
 
 [node name="BoxThrowable" parent="." instance=ExtResource("6_un50q")]

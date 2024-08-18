@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = %Sprite
 
 @export var SPEEDS = {"smol": 100, "regular": 200, "big": 300}
-@export var JUMP_VELOCITIES = {"smol": -300, "regular": -400, "big": -500}
+@export var JUMP_VELOCITIES = {"smol": -300, "regular": -450, "big": -500}
 
 @export var start_size: int = 0
 

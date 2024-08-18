@@ -32,9 +32,10 @@ position = Vector2(304, 24)
 scenePath = "res://scenes/GameLevels/Lvl3.tscn"
 
 [node name="Lever" parent="." node_paths=PackedStringArray("portal_connections") instance=ExtResource("5_bn5ou")]
-position = Vector2(-96, -40)
+position = Vector2(-312, 56)
 portal_connections = [NodePath("../SizePortal")]
 
 [node name="SizePortal" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("6_vvwsl")]
 position = Vector2(-96, 32)
+augmentation_mode = 1
 connections = [NodePath("../Player")]
