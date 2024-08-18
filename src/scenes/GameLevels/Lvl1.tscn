@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://40pdaejlli6f"]
+[gd_scene load_steps=8 format=4 uid="uid://40pdaejlli6f"]
 
 [ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_3w4m4"]
 [ext_resource type="TileSet" uid="uid://bblkv7kqmp63w" path="res://scenes/GameLevels/LvlTileSet.tres" id="2_cvrsi"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkfp15nfsv3vq" path="res://scenes/gameplay/Goal.tscn" id="4_4rgwt"]
 [ext_resource type="TileSet" uid="uid://bkft5u1xsc68r" path="res://scenes/GameLevels/platform-accessories.tres" id="4_ccf4t"]
 [ext_resource type="PackedScene" uid="uid://d0ck0e6i26joy" path="res://scenes/gameplay/portals/size_portal.tscn" id="5_d3lc4"]
+[ext_resource type="PackedScene" uid="uid://c38oxpg1paat5" path="res://scenes/gameplay/test_tube.tscn" id="7_fndky"]
 
 [node name="GameScene2" type="Node2D"]
 
@@ -40,3 +41,6 @@ scenePath = "res://scenes/GameLevels/Lvl2.tscn"
 [node name="SizePortal" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("5_d3lc4")]
 position = Vector2(-96, -64)
 connections = [NodePath("../Player")]
+
+[node name="TestTube" parent="." instance=ExtResource("7_fndky")]
+position = Vector2(-317, 16)
