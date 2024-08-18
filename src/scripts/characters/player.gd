@@ -56,6 +56,12 @@ func _input(event: InputEvent) -> void:
 		sizeable_component.try_size_down()
 	elif event.is_action_pressed("test2"):
 		sizeable_component.try_size_up()
+
+func size_up():
+	sizeable_component.try_size_up()
+
+func size_down():
+	sizeable_component.try_size_down()
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
