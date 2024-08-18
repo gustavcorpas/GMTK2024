@@ -7,6 +7,38 @@ Components are reusable scripts you may attach and setup to a node to enable eas
 component.do_something()
 ```
 
+## Sizeable
+
+The sizeable component has two relevant methods:
+
+- `try_size_up`
+- `try_size_down`
+
+It takes an array of `SizeResource`s and determines if a transition is possible.
+
+The scene may then listen to the `size` event, to get informed about actual possible changes. 
+It is up to the parent object to handle actual resizing,
+but it may use the relevant `SizeResource` that is returned in the `size` event.
+
+__OBS: The base for calculations is the `transform` of the `SizeableComponent`__
+
+Example:
+
+```
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("test1"):
+		sizeable_component.try_size_down()
+	if event.is_action_pressed("test2"):
+		sizeable_component.try_size_up()
+		
+
+func _on_sizeable_component_size(res) -> void:
+	print_debug("sizing", res)
+
+
+```
+
 ## Throwable
 
 The throwable component works with the following nodes:
