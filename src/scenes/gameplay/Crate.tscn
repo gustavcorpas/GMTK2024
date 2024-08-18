@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bonjoi55r1vwf"]
 
 [ext_resource type="Script" path="res://scripts/environment/crate.gd" id="1_1nh7u"]
-[ext_resource type="Texture2D" uid="uid://2fkyynfyax0p" path="res://dogo.png" id="1_x0ly2"]
+[ext_resource type="Texture2D" uid="uid://2r7s6qp3mpg0" path="res://assets/art/crate-heavy.png" id="2_bli60"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3acw4"]
 
@@ -18,8 +18,9 @@ script = ExtResource("1_1nh7u")
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 8, 0, 10, -10, 8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("1_x0ly2")
+position = Vector2(0, -16)
+texture = ExtResource("2_bli60")
+region_rect = Rect2(0.405, 6.07, 1.42, 0.725)
 
 [node name="CraterFreezer" type="Area2D" parent="."]
 position = Vector2(0, -10)
