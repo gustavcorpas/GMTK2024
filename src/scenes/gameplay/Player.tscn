@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bob4k2hlei7k3"]
+[gd_scene load_steps=12 format=3 uid="uid://bob4k2hlei7k3"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_put57"]
 [ext_resource type="Texture2D" uid="uid://p8r2ivlgthi7" path="res://assets/art/RegAlien.png" id="2_xc7cm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c8mn5vtufrsuj" path="res://assets/art/MiniAlien.png" id="4_o5j66"]
 [ext_resource type="Script" path="res://scenes/gameplay/portals/shared/SizableComponent.gd" id="5_lr15i"]
 [ext_resource type="Script" path="res://scenes/gameplay/portals/shared/SizeResource.gd" id="6_lriv2"]
+[ext_resource type="SpriteFrames" uid="uid://d0nkhrjbfjbbl" path="res://assets/art/MiniWalk.tres" id="7_xr7ya"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ljh"]
 radius = 7.0
@@ -37,6 +38,7 @@ script = ExtResource("1_put57")
 
 [node name="Regular" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 texture = ExtResource("2_xc7cm")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -49,5 +51,11 @@ script = ExtResource("5_lr15i")
 sizes = Array[ExtResource("6_lriv2")]([SubResource("Resource_3xyk5"), SubResource("Resource_4aemi"), SubResource("Resource_rjlqn")])
 current_size_index = 1
 debug_mode = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("7_xr7ya")
+animation = &"regularWalk"
+autoplay = "smolIdle"
 
 [connection signal="size" from="SizeableComponent" to="." method="_on_sizeable_component_size"]

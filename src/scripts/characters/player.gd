@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sizeable_component: SizeableComponent = $SizeableComponent
 @onready var regular: Sprite2D = %Regular
+@onready var sprite: AnimatedSprite2D = %Sprite
 
 @export var SPEEDS = {"smol": 100, "regular": 200, "big": 300}
 @export var JUMP_VELOCITIES = {"smol": -200, "regular": -300, "big": -400}
@@ -24,6 +25,10 @@ var known_direction := Direction.right
 var target_size_h = 10
 var target_size_v = 50
 
+var sizeName = "regular"
+var idleName = "RegIdle"
+var walkName = "RegWalk"
+
 signal node_ready
 
 var instantiated = false
@@ -40,6 +45,7 @@ func make_size(res: SizeResource):
 	SPEED = SPEEDS.get(res.name)
 	target_size_h = res.target_size_h
 	target_size_v = res.target_size_v
+	sizeName = res.name
 	if not instantiated:
 		await node_ready
 	regular.set_texture(res.sprite)
@@ -81,10 +87,17 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 		if direction > 0:
 			known_direction = Direction.right
+			%Sprite.flip_h = false;
 		elif direction < 0:
 			known_direction = Direction.left
+			%Sprite.flip_h = true;
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if abs(velocity.x) >0.1:
+		sprite.play(sizeName+"Walk")
+	else:
+		sprite.play(sizeName+"Idle")
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)

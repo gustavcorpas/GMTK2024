@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dum4sxsbwrqu0" path="res://scenes/GameLevels/LvlTileSet.tres" id="2_nqt53"]
 [ext_resource type="Texture2D" uid="uid://bo5ugal013jsi" path="res://assets/art/sci-fi-tileset.png" id="3_hlsnd"]
 [ext_resource type="PackedScene" uid="uid://dkfp15nfsv3vq" path="res://scenes/gameplay/Goal.tscn" id="4_aq3h4"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/Lever.tscn" id="5_bn5ou"]
+[ext_resource type="PackedScene" uid="uid://ce8i8s62pnh4v" path="res://scenes/gameplay/Lever.tscn" id="5_bn5ou"]
 [ext_resource type="PackedScene" uid="uid://d0ck0e6i26joy" path="res://scenes/gameplay/portals/size_portal.tscn" id="6_vvwsl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tan7q"]
