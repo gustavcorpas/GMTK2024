@@ -23,6 +23,9 @@ var target_size_v = 50
 
 signal node_ready
 
+func _ready():
+	node_ready.emit()
+
 func get_facing_direction():
 	return known_direction
 	
@@ -31,6 +34,7 @@ func make_size(res: SizeResource):
 	SPEED = SPEEDS.get(res.name)
 	target_size_h = res.target_size_h
 	target_size_v = res.target_size_v
+	await node_ready
 	regular.set_texture(res.sprite)
 
 func _on_sizeable_component_size(res) -> void:
