@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scenes/gameplay/portals/shared/SizeResource.gd" id="6_lriv2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ljh"]
-radius = 7.0
-height = 14.0
+radius = 15.0
+height = 62.0
 
 [sub_resource type="Resource" id="Resource_3xyk5"]
 script = ExtResource("6_lriv2")
@@ -35,15 +35,9 @@ target_size_v = 30
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_put57")
 
-[node name="Regular" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -8)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xc7cm")
-
 [node name="Collider" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -8)
+position = Vector2(0, -32)
 shape = SubResource("CapsuleShape2D_h1ljh")
 
 [node name="SizeableComponent" type="Node2D" parent="."]
