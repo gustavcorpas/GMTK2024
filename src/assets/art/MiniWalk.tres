@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_resource type="SpriteFrames" load_steps=43 format=3 uid="uid://d0nkhrjbfjbbl"]
+=======
+[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://n4m5sm4k0cnh"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://do2020jo6agh" path="res://assets/art/BigAlienIdle-Sheet.png" id="1_6upu5"]
 [ext_resource type="Texture2D" uid="uid://lbcleexqs2t2" path="res://assets/art/MiniWalk-Sheet.png" id="1_gfh8m"]

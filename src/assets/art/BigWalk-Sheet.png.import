@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://b1a35usx3b64c"
+=======
+uid="uid://bcfwkdhi1xppv"
+>>>>>>> Stashed changes
 path="res://.godot/imported/BigWalk-Sheet.png-fbcca2ed12fdc4fc2ec03df424790062.ctex"
 metadata={
 "vram_texture": false

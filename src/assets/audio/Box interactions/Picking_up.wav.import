@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< Updated upstream
 uid="uid://c4fjmhckktxtt"
+=======
+uid="uid://ctg1aftosxvt7"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Picking_up.wav-cfaeed1b99bf539594e7eec94cc8b00e.sample"
 
 [deps]

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c8mn5vtufrsuj" path="res://assets/art/MiniAlien.png" id="4_o5j66"]
 [ext_resource type="Script" path="res://scenes/gameplay/portals/shared/SizableComponent.gd" id="5_lr15i"]
 [ext_resource type="Script" path="res://scenes/gameplay/portals/shared/SizeResource.gd" id="6_lriv2"]
-[ext_resource type="SpriteFrames" uid="uid://d0nkhrjbfjbbl" path="res://assets/art/MiniWalk.tres" id="7_xr7ya"]
+[ext_resource type="SpriteFrames" uid="uid://n4m5sm4k0cnh" path="res://assets/art/MiniWalk.tres" id="7_xr7ya"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ljh"]
 radius = 7.0

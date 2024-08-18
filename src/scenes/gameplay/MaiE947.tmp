@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdbaqsqw2uejt"]
+[gd_scene load_steps=10 format=3 uid="uid://cdbaqsqw2uejt"]
 
 [ext_resource type="Texture2D" uid="uid://b7d78en1nclyq" path="res://scenes/ui/Images_ui/placeholder-1.jpg" id="1_iqqw5"]
 [ext_resource type="Script" path="res://scenes/gameplay/main_menu.gd" id="1_j0k44"]
 [ext_resource type="FontFile" uid="uid://b34dx5s8xp684" path="res://scenes/ui/Fonts/Doctor Glitch.otf" id="2_22yfj"]
+[ext_resource type="Script" path="res://scenes/gameplay/CTR.gd" id="4_xmchk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xictx"]
 texture = ExtResource("1_iqqw5")
@@ -177,6 +178,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_dqo4s")
 theme_override_styles/normal = SubResource("StyleBoxFlat_y83ea")
 text = "Exit game
 "
+
+[node name="SubViewport" type="SubViewport" parent="."]
+script = ExtResource("4_xmchk")
 
 [connection signal="pressed" from="Screen_position/Menu_Hpos/Start_game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Screen_position/Menu_Hpos/Settings" to="." method="_on_settings_pressed"]

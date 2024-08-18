@@ -1384,9 +1384,11 @@ shape = SubResource("RectangleShape2D_g0naq")
 
 [node name="diminish" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_d3x4e")
+bus = &"Sound SFX"
 
 [node name="augment" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_3upm5")
+bus = &"Sound SFX"
 
 [node name="count" type="RichTextLabel" parent="."]
 offset_left = 2.0
