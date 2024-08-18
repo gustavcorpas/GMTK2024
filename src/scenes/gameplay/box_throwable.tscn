@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd0iyup1lv6yy"]
+
+[ext_resource type="Texture2D" uid="uid://bldf0xyuyafun" path="res://assets/art/temporary.png" id="1_iko87"]
+[ext_resource type="Script" path="res://scripts/environment/box_throwable.gd" id="1_ugajs"]
+[ext_resource type="Script" path="res://scripts/environment/throwable_component.gd" id="2_jttuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg4mw"]
+size = Vector2(29, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iprci"]
+size = Vector2(63, 23)
+
+[node name="BoxThrowable" type="CharacterBody2D"]
+script = ExtResource("1_ugajs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gg4mw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_iko87")
+
+[node name="ThrowableComponent" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("2_jttuy")
+body = NodePath("..")
+
+[node name="Area2DTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DTrigger"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_iprci")
+
+[connection signal="body_entered" from="Area2DTrigger" to="." method="_on_area_2d_trigger_body_entered"]
+[connection signal="body_exited" from="Area2DTrigger" to="." method="_on_area_2d_trigger_body_exited"]

@@ -3,9 +3,9 @@ extends Node
 class_name ThrowableComponent
 
 const FOLLOW_SPEED = 10.0
-const HOVER_OFFSET = Vector2(20, -10)
+@export var HOVER_OFFSET = Vector2(30, -10)
 
-@export var throw_force: int = 100
+@export var throw_force: int = 200
 @export var body: Node2D
 
 signal throw_start
@@ -25,12 +25,6 @@ var picked_up := false
 var throwing := false
 var throw_to: Vector2
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		pick_up()
-	if event.is_action_pressed("shoot"):
-		throw()
-		
 
 func _process(delta: float) -> void:
 	if throwing:
