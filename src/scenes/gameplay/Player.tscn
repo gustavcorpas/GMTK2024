@@ -6,28 +6,28 @@
 [ext_resource type="Texture2D" uid="uid://c8mn5vtufrsuj" path="res://assets/art/MiniAlien.png" id="4_o5j66"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ljh"]
-radius = 7.0
-height = 14.0
+radius = 15.0
+height = 62.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_put57")
 
-[node name="Regular" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -8)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xc7cm")
-
 [node name="Collider" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -8)
+position = Vector2(0, -32)
 shape = SubResource("CapsuleShape2D_h1ljh")
 
 [node name="Big" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -8)
+position = Vector2(1, -25)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_iubfk")
+
+[node name="Regular" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -32)
+scale = Vector2(1.033, 1)
+texture = ExtResource("2_xc7cm")
 
 [node name="SMol" type="Sprite2D" parent="."]
 visible = false
