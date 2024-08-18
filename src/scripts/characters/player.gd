@@ -7,6 +7,13 @@ extends CharacterBody2D
 const PUSH_FORCE = 75
 const MAX_VELOCITY = 150
 
+enum Direction {right = 1, left = -1}
+var known_direction := Direction.right
+
+
+func get_facing_direction():
+	return known_direction
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -39,6 +46,10 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		if direction > 0:
+			known_direction = Direction.right
+		elif direction < 0:
+			known_direction = Direction.left
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
