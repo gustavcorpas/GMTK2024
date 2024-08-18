@@ -5,30 +5,23 @@ var activated = false
 
 signal lever_triggered(activated)
 
+@export var portal_connections: Array[Portal] = []
+
+
+
 func _on_body_entered(body: Node2D) -> void:
-	
 	player_in_range = true
-	_listen_for_interaction()
-	pass # Replace with function body.
 
 
 func _on_body_exited(body: Node2D) -> void:
 	player_in_range = false
-	pass # Replace with function body.
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact") and player_in_range:
+		activated = !activated
+		lever_triggered.emit(activated)
 
 
-func _listen_for_interaction():
-	
-	while(player_in_range):
-		
-		await get_tree().create_timer(0.001).timeout
-		
-		if Input.is_action_just_pressed("interact"):
-			print("heave ho")
-			activated = !activated
-			lever_triggered.emit(activated)
-			
-			scale.x = -scale.x
-	
-	
-	pass
+func _on_lever_triggered(activated: Variant) -> void:
+	for portal in portal_connections:
+		portal.flip()
