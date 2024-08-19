@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdbaqsqw2uejt"]
+[gd_scene load_steps=10 format=3 uid="uid://cdbaqsqw2uejt"]
 
 [ext_resource type="Texture2D" uid="uid://b7d78en1nclyq" path="res://assets/art/UI assets/Images_ui_placeholders/placeholder-1.jpg" id="1_iqqw5"]
 [ext_resource type="Script" path="res://scenes/gameplay/main_menu.gd" id="1_j0k44"]
 [ext_resource type="FontFile" uid="uid://b34dx5s8xp684" path="res://assets/art/UI assets/Fonts/Doctor Glitch.otf" id="2_22yfj"]
+[ext_resource type="FontFile" uid="uid://hv7o127tt81v" path="res://assets/art/UI assets/Fonts/ka1.ttf" id="4_umdhl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xictx"]
 texture = ExtResource("1_iqqw5")
@@ -142,6 +143,7 @@ size_flags_vertical = 10
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_umdhl")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mt5ar")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8oyhj")
@@ -156,6 +158,7 @@ size_flags_vertical = 10
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_umdhl")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mt5ar")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8oyhj")
@@ -170,6 +173,7 @@ size_flags_vertical = 10
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_umdhl")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mt5ar")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8oyhj")
