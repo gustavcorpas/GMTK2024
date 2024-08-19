@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cx8vqo4p2u01h"]
+
+[ext_resource type="Texture2D" uid="uid://b4gst4ceerhue" path="res://assets/art/UI assets/Images_ui_placeholders/Settingboarder.png" id="1_jmoim"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yll65"]
+texture = ExtResource("1_jmoim")
+texture_margin_left = 45.0
+texture_margin_top = 15.0
+texture_margin_right = 48.0
+texture_margin_bottom = 19.0
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_yll65")

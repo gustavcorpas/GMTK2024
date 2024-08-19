@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://f7h8gqyji6j6"]
+
+[ext_resource type="Texture2D" uid="uid://dbf02gcf6dvs0" path="res://assets/art/UI assets/Images_ui_placeholders/MMenuBoarder.png" id="1_sf5dt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_amum3"]
+texture = ExtResource("1_sf5dt")
+texture_margin_left = 42.0
+texture_margin_top = 15.0
+texture_margin_right = 42.0
+texture_margin_bottom = 25.0
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_amum3")
