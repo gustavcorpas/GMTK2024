@@ -83,6 +83,9 @@ func size_up():
 
 func size_down():
 	sizeable_component.try_size_down()
+
+func launch_player():
+	velocity.y = -1000 - JUMP_VELOCITY
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

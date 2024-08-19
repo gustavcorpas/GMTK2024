@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=4 uid="uid://cqivqger1vp2b"]
+[gd_scene load_steps=15 format=4 uid="uid://cqivqger1vp2b"]
 
-[ext_resource type="PackedScene" uid="uid://6m366c2rlmjj" path="res://scenes/gameplay/Player.tscn" id="1_7m3xi"]
-[ext_resource type="PackedScene" uid="uid://bm8mnnsj5amgf" path="res://scenes/gameplay/Goal.tscn" id="2_lgw48"]
+[ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_7m3xi"]
+[ext_resource type="PackedScene" uid="uid://dkfp15nfsv3vq" path="res://scenes/gameplay/Goal.tscn" id="2_lgw48"]
 [ext_resource type="Script" path="res://scripts/environment/reset_hazard.gd" id="3_xvhxs"]
 [ext_resource type="Texture2D" uid="uid://bo5ugal013jsi" path="res://assets/art/sci-fi-tileset.png" id="4_ipl5n"]
 [ext_resource type="PackedScene" uid="uid://ua4nuh7jx6qh" path="res://scenes/gameplay/Collectible.tscn" id="5_foxsw"]
 [ext_resource type="PackedScene" uid="uid://djj8dvhflj7p5" path="res://scenes/gameplay/Lever.tscn" id="7_5ms6r"]
 [ext_resource type="PackedScene" uid="uid://bonjoi55r1vwf" path="res://scenes/gameplay/Crate.tscn" id="7_u5bmw"]
-[ext_resource type="Texture2D" uid="uid://csqjxfs6ukaeo" path="res://assets/art/space ship.png" id="8_dxiwt"]
-[ext_resource type="Script" path="res://scenes/gameplay/lever_triggered.gd" id="9_fio2x"]
+[ext_resource type="Texture2D" uid="uid://do0gupykc2bko" path="res://assets/art/space ship.png" id="8_dxiwt"]
+[ext_resource type="Script" path="res://scripts/environment/lever_triggered.gd" id="9_fio2x"]
+[ext_resource type="Script" path="res://scripts/environment/bounce_pad.gd" id="10_pnvul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svs3u"]
 size = Vector2(120, 15)
@@ -110,6 +111,8 @@ texture = ExtResource("4_ipl5n")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tan7q")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fr6l"]
+
 [node name="GameScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_7m3xi")]
@@ -154,5 +157,18 @@ position = Vector2(158, -119)
 texture = ExtResource("8_dxiwt")
 script = ExtResource("9_fio2x")
 
+[node name="BouncePad" type="Area2D" parent="Interactables"]
+position = Vector2(-131, 13)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("10_pnvul")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/BouncePad"]
+texture = ExtResource("8_dxiwt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/BouncePad"]
+shape = SubResource("RectangleShape2D_7fr6l")
+
 [connection signal="body_entered" from="AcidPit" to="AcidPit" method="_on_body_entered"]
 [connection signal="lever_triggered" from="Interactables/Lever" to="Interactables/LeverTrigger" method="_on_lever_lever_triggered"]
+[connection signal="body_entered" from="Interactables/BouncePad" to="Interactables/BouncePad" method="_on_body_entered"]
