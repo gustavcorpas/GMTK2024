@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cdbaqsqw2uejt"]
 
-[ext_resource type="Texture2D" uid="uid://b7d78en1nclyq" path="res://scenes/ui/Images_ui/placeholder-1.jpg" id="1_iqqw5"]
+[ext_resource type="Texture2D" uid="uid://b7d78en1nclyq" path="res://assets/art/UI assets/Images_ui_placeholders/placeholder-1.jpg" id="1_iqqw5"]
 [ext_resource type="Script" path="res://scenes/gameplay/main_menu.gd" id="1_j0k44"]
-[ext_resource type="FontFile" uid="uid://b34dx5s8xp684" path="res://scenes/ui/Fonts/Doctor Glitch.otf" id="2_22yfj"]
+[ext_resource type="FontFile" uid="uid://b34dx5s8xp684" path="res://assets/art/UI assets/Fonts/Doctor Glitch.otf" id="2_22yfj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xictx"]
 texture = ExtResource("1_iqqw5")

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b34dx5s8xp684"
-path="res://.godot/imported/Doctor Glitch.otf-74d46dfcc7603028bf464d96be93f1e3.fontdata"
+path="res://.godot/imported/Doctor Glitch.otf-d8d5bd33bf11ff7a800684a54d500058.fontdata"
 
 [deps]
 
-source_file="res://scenes/ui/Fonts/Doctor Glitch.otf"
-dest_files=["res://.godot/imported/Doctor Glitch.otf-74d46dfcc7603028bf464d96be93f1e3.fontdata"]
+source_file="res://assets/art/UI assets/Fonts/Doctor Glitch.otf"
+dest_files=["res://.godot/imported/Doctor Glitch.otf-d8d5bd33bf11ff7a800684a54d500058.fontdata"]
 
 [params]
 
