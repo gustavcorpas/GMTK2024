@@ -1,13 +1,13 @@
 extends Control
 
-@onready var optionsMenu = preload("res://scenes/gameplay/Pausemenu.tscn")
-
+ 
 func _ready():
 	$Animationpause.play("RESET")
 
 func resume():
 	get_tree().paused = false
 	$Animationpause.play_backwards("Blur_screen")
+ 
 	
 func pause():
 	get_tree().paused = true
@@ -21,6 +21,7 @@ func PressEcs():
 
 func _on_resume_pressed():
 	resume()
+	
 
 func _on_restart_pressed():
 	resume()
@@ -31,6 +32,8 @@ func _on_quit_pressed():
 
 func _process(delta):
 	PressEcs()
+	
+ 
 
 func _on_options_pressed():
 	resume()
