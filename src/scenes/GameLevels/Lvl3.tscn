@@ -136,7 +136,7 @@ tile_set = SubResource("TileSet_muob4")
 
 [node name="Goal" parent="." instance=ExtResource("4_kuwqv")]
 position = Vector2(304, 16)
-scenePath = "res://scenes/GameLevels/Lvl4.tscn"
+scenePath = "res://scenes/GameLevels/Lvl3.1.tscn"
 
 [node name="SizePortal" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("6_ofiy8")]
 position = Vector2(-96, 32)
