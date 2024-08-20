@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://40pdaejlli6f"]
+[gd_scene load_steps=10 format=4 uid="uid://40pdaejlli6f"]
 
 [ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_3w4m4"]
 [ext_resource type="Texture2D" uid="uid://bwj8ra5qrgc44" path="res://assets/art/dark-gradient.png" id="1_bx87n"]
 [ext_resource type="TileSet" uid="uid://bblkv7kqmp63w" path="res://scenes/GameLevels/LvlTileSet.tres" id="2_cvrsi"]
 [ext_resource type="TileSet" uid="uid://dnjm3ewmjy0i4" path="res://scenes/GameLevels/background.tres" id="2_xyfg6"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/Goal.tscn" id="4_4rgwt"]
+[ext_resource type="PackedScene" uid="uid://7y1p28jqp2ar" path="res://scenes/gameplay/Goal.tscn" id="4_4rgwt"]
 [ext_resource type="TileSet" uid="uid://bkft5u1xsc68r" path="res://scenes/GameLevels/platform-accessories.tres" id="4_ccf4t"]
 [ext_resource type="PackedScene" uid="uid://d0ck0e6i26joy" path="res://scenes/gameplay/portals/size_portal.tscn" id="5_d3lc4"]
 [ext_resource type="PackedScene" uid="uid://c38oxpg1paat5" path="res://scenes/gameplay/test_tube.tscn" id="7_fndky"]
+[ext_resource type="PackedScene" uid="uid://ciwwgbhc531ka" path="res://scenes/world_environment.tscn" id="9_fvxua"]
 
 [node name="GameScene2" type="Node2D"]
 
@@ -40,7 +41,7 @@ tile_map_data = PackedByteArray("AAAFAP//AQAGAAAAAAAEAPr/AQAHAAAAAAAIAP7/AQAHAAA
 tile_set = ExtResource("4_ccf4t")
 
 [node name="Goal" parent="." instance=ExtResource("4_4rgwt")]
-position = Vector2(312, 32)
+position = Vector2(302, 14)
 scenePath = "res://scenes/GameLevels/Lvl2.tscn"
 
 [node name="SizePortal" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("5_d3lc4")]
@@ -49,3 +50,5 @@ connections = [NodePath("../Player")]
 
 [node name="TestTube" parent="." instance=ExtResource("7_fndky")]
 position = Vector2(-317, 16)
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("9_fvxua")]

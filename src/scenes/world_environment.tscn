@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciwwgbhc531ka"]
+
+[sub_resource type="Environment" id="Environment_kkbip"]
+background_mode = 3
+glow_enabled = true
+glow_levels/3 = 0.0
+glow_levels/4 = 0.15
+glow_levels/5 = 0.15
+glow_intensity = 0.1
+glow_strength = 1.5
+glow_bloom = 0.3
+glow_blend_mode = 0
+glow_hdr_scale = 0.0
+glow_hdr_luminance_cap = 1.0
+adjustment_enabled = true
+adjustment_brightness = 1.1
+adjustment_contrast = 1.2
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_kkbip")
