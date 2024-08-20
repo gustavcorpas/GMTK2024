@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://40pdaejlli6f"]
+[gd_scene load_steps=11 format=4 uid="uid://40pdaejlli6f"]
 
 [ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_3w4m4"]
 [ext_resource type="Texture2D" uid="uid://bwj8ra5qrgc44" path="res://assets/art/dark-gradient.png" id="1_bx87n"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d0ck0e6i26joy" path="res://scenes/gameplay/portals/size_portal.tscn" id="5_d3lc4"]
 [ext_resource type="PackedScene" uid="uid://c38oxpg1paat5" path="res://scenes/gameplay/test_tube.tscn" id="7_fndky"]
 [ext_resource type="PackedScene" uid="uid://ciwwgbhc531ka" path="res://scenes/world_environment.tscn" id="9_fvxua"]
+[ext_resource type="PackedScene" uid="uid://cyv0xrdfge1ab" path="res://scenes/gameplay/Pausemenu.tscn" id="10_a6m0q"]
 
 [node name="GameScene2" type="Node2D"]
 
@@ -52,3 +53,7 @@ connections = [NodePath("../Player")]
 position = Vector2(-317, 16)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("9_fvxua")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("10_a6m0q")]

@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://x3ltqu0jkd2m"]
+[gd_scene load_steps=8 format=3 uid="uid://x3ltqu0jkd2m"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/settings.gd" id="1_gn1yf"]
 [ext_resource type="Theme" uid="uid://cx8vqo4p2u01h" path="res://assets/art/UI assets/Images_ui_placeholders/SettingTheme.tres" id="2_0gmtm"]
+[ext_resource type="Texture2D" uid="uid://b7d78en1nclyq" path="res://assets/art/UI assets/Images_ui_placeholders/placeholder-1.jpg" id="2_ae0cs"]
 [ext_resource type="FontFile" uid="uid://hv7o127tt81v" path="res://assets/art/UI assets/Fonts/ka1.ttf" id="2_e2qcl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w48ys"]
+texture = ExtResource("2_ae0cs")
+modulate_color = Color(0.695503, 0.695503, 0.695503, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qh0q"]
 bg_color = Color(0, 0, 0, 0)
@@ -18,6 +23,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gn1yf")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w48ys")
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 1
