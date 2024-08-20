@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdbaqsqw2uejt"]
+[gd_scene load_steps=14 format=3 uid="uid://cdbaqsqw2uejt"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/main_menu.gd" id="1_j0k44"]
-[ext_resource type="FontFile" uid="uid://b34dx5s8xp684" path="res://assets/art/UI assets/Fonts/Doctor Glitch.otf" id="2_22yfj"]
+[ext_resource type="Texture2D" uid="uid://dkkfssobmnggf" path="res://assets/art/Space.png" id="2_3qf7o"]
 [ext_resource type="Texture2D" uid="uid://cgjjx7bixbl25" path="res://assets/art/title text.png" id="2_bfcwf"]
 [ext_resource type="Texture2D" uid="uid://do0gupykc2bko" path="res://assets/art/space ship.png" id="4_38wia"]
 [ext_resource type="Theme" uid="uid://f7h8gqyji6j6" path="res://assets/art/UI assets/Images_ui_placeholders/MMenuborder.tres" id="4_siour"]
 [ext_resource type="FontFile" uid="uid://hv7o127tt81v" path="res://assets/art/UI assets/Fonts/ka1.ttf" id="4_umdhl"]
 [ext_resource type="Texture2D" uid="uid://c8mn5vtufrsuj" path="res://assets/art/MiniAlien.png" id="4_ydev1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e1d54"]
+texture = ExtResource("2_3qf7o")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xictx"]
 texture = ExtResource("2_bfcwf")
@@ -50,6 +53,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j0k44")
 
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e1d54")
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -58,27 +70,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xictx")
-
-[node name="Title text" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -222.5
-offset_top = -250.0
-offset_right = 222.5
-offset_bottom = -199.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.794776, 0.3126, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.367425, 0.00552423, 0.360645, 1)
-theme_override_constants/shadow_offset_y = 8
-theme_override_fonts/font = ExtResource("2_22yfj")
-theme_override_font_sizes/font_size = 48
-text = "Game Jam Title. "
 
 [node name="alian" type="Sprite2D" parent="."]
 position = Vector2(1750, 915)

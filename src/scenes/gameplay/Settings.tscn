@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scenes/gameplay/settings.gd" id="1_gn1yf"]
 [ext_resource type="Theme" uid="uid://cx8vqo4p2u01h" path="res://assets/art/UI assets/Images_ui_placeholders/SettingTheme.tres" id="2_0gmtm"]
-[ext_resource type="Texture2D" uid="uid://b7d78en1nclyq" path="res://assets/art/UI assets/Images_ui_placeholders/placeholder-1.jpg" id="2_ae0cs"]
 [ext_resource type="FontFile" uid="uid://hv7o127tt81v" path="res://assets/art/UI assets/Fonts/ka1.ttf" id="2_e2qcl"]
+[ext_resource type="Texture2D" uid="uid://dkkfssobmnggf" path="res://assets/art/Space.png" id="2_i0nbf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w48ys"]
-texture = ExtResource("2_ae0cs")
+texture = ExtResource("2_i0nbf")
 modulate_color = Color(0.695503, 0.695503, 0.695503, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qh0q"]
