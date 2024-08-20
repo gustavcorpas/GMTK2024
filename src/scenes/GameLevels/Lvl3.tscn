@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b7sqoddi6geq4"]
+[gd_scene load_steps=13 format=4 uid="uid://b7sqoddi6geq4"]
 
 [ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_62ixk"]
 [ext_resource type="TileSet" uid="uid://dnjm3ewmjy0i4" path="res://scenes/GameLevels/background.tres" id="2_3etj5"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bd0iyup1lv6yy" path="res://scenes/gameplay/box_throwable.tscn" id="6_un50q"]
 [ext_resource type="Texture2D" uid="uid://bwj8ra5qrgc44" path="res://assets/art/dark-gradient.png" id="8_7swso"]
 [ext_resource type="PackedScene" uid="uid://ciwwgbhc531ka" path="res://scenes/world_environment.tscn" id="9_h1mx4"]
+[ext_resource type="PackedScene" uid="uid://cyv0xrdfge1ab" path="res://scenes/gameplay/Pausemenu.tscn" id="10_432rp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tan7q"]
 texture = ExtResource("3_jlhbh")
@@ -151,3 +152,12 @@ z_index = -1
 texture = ExtResource("8_7swso")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("9_h1mx4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("10_432rp")]
+offset_left = -620.0
+offset_top = -346.0
+offset_right = -620.0
+offset_bottom = -346.0
+size_flags_horizontal = 4

@@ -43,3 +43,5 @@ func _on_area_2d_trigger_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_trigger_body_exited(body: Node2D) -> void:
 	pickupable = false;
+	
+ 

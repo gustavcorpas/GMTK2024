@@ -72,9 +72,9 @@ func _on_sizeable_component_size(res) -> void:
 		"smol": make_size(res); target_step = step_smol
 		_: print_debug(res.name + "is not supported by player script!")
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("restart"):
-		get_tree().reload_current_scene()
+# func _input(event: InputEvent) -> void:
+#	if event.is_action_pressed("restart"):
+#		get_tree().reload_current_scene()
 
 func size_up():
 	sizeable_component.try_size_up()

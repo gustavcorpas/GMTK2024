@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://og6echkpwdww"]
+[gd_scene load_steps=13 format=4 uid="uid://og6echkpwdww"]
 
 [ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_cny8g"]
 [ext_resource type="TileSet" uid="uid://dnjm3ewmjy0i4" path="res://scenes/GameLevels/background.tres" id="2_055om"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0ck0e6i26joy" path="res://scenes/gameplay/portals/size_portal.tscn" id="6_jaft4"]
 [ext_resource type="PackedScene" uid="uid://ce8i8s62pnh4v" path="res://scenes/gameplay/Lever.tscn" id="7_m1aci"]
 [ext_resource type="Texture2D" uid="uid://bwj8ra5qrgc44" path="res://assets/art/dark-gradient.png" id="9_j04dw"]
+[ext_resource type="PackedScene" uid="uid://cyv0xrdfge1ab" path="res://scenes/gameplay/Pausemenu.tscn" id="10_mg2hl"]
 [ext_resource type="PackedScene" uid="uid://ciwwgbhc531ka" path="res://scenes/world_environment.tscn" id="10_pvq0t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tan7q"]
@@ -151,3 +152,12 @@ portal_connections = [NodePath("../SizePortal")]
 [node name="Goal" parent="." instance=ExtResource("5_xg8cn")]
 position = Vector2(261, 14)
 scenePath = "res://scenes/GameLevels/Lvl3.2.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("10_mg2hl")]
+offset_left = -620.0
+offset_top = -346.0
+offset_right = -620.0
+offset_bottom = -346.0
+size_flags_horizontal = 4

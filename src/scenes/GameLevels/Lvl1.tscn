@@ -57,4 +57,8 @@ position = Vector2(-317, 16)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("10_a6m0q")]
-metadata/_edit_use_anchors_ = true
+offset_left = -620.0
+offset_top = -346.0
+offset_right = -620.0
+offset_bottom = -346.0
+size_flags_horizontal = 4

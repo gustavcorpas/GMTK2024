@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://csqpi16qbtedt"]
+[gd_scene load_steps=12 format=4 uid="uid://csqpi16qbtedt"]
 
 [ext_resource type="PackedScene" uid="uid://bob4k2hlei7k3" path="res://scenes/gameplay/Player.tscn" id="1_ah7v4"]
 [ext_resource type="TileSet" uid="uid://dnjm3ewmjy0i4" path="res://scenes/GameLevels/background.tres" id="2_q4kuk"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ce8i8s62pnh4v" path="res://scenes/gameplay/Lever.tscn" id="8_dq5kv"]
 [ext_resource type="PackedScene" uid="uid://7y1p28jqp2ar" path="res://scenes/gameplay/Goal.tscn" id="9_f7dyp"]
 [ext_resource type="PackedScene" uid="uid://bd0iyup1lv6yy" path="res://scenes/gameplay/box_throwable.tscn" id="10_5fl5u"]
+[ext_resource type="PackedScene" uid="uid://cyv0xrdfge1ab" path="res://scenes/gameplay/Pausemenu.tscn" id="11_uj4cp"]
 
 [node name="GameScene" type="Node2D"]
 
@@ -61,3 +62,12 @@ scenePath = "res://scenes/GameLevels/Lvl4.tscn"
 
 [node name="BoxThrowable" parent="." instance=ExtResource("10_5fl5u")]
 position = Vector2(-281, 101)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("11_uj4cp")]
+offset_left = -620.0
+offset_top = -346.0
+offset_right = -620.0
+offset_bottom = -346.0
+size_flags_horizontal = 4
