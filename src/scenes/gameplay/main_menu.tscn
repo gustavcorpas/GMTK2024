@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdbaqsqw2uejt"]
+[gd_scene load_steps=13 format=3 uid="uid://cdbaqsqw2uejt"]
 
-[ext_resource type="Texture2D" uid="uid://b7d78en1nclyq" path="res://assets/art/UI assets/Images_ui_placeholders/placeholder-1.jpg" id="1_iqqw5"]
 [ext_resource type="Script" path="res://scenes/gameplay/main_menu.gd" id="1_j0k44"]
 [ext_resource type="FontFile" uid="uid://b34dx5s8xp684" path="res://assets/art/UI assets/Fonts/Doctor Glitch.otf" id="2_22yfj"]
+[ext_resource type="Texture2D" uid="uid://cgjjx7bixbl25" path="res://assets/art/title text.png" id="2_bfcwf"]
+[ext_resource type="Texture2D" uid="uid://do0gupykc2bko" path="res://assets/art/space ship.png" id="4_38wia"]
 [ext_resource type="Theme" uid="uid://f7h8gqyji6j6" path="res://assets/art/UI assets/Images_ui_placeholders/MMenuborder.tres" id="4_siour"]
 [ext_resource type="FontFile" uid="uid://hv7o127tt81v" path="res://assets/art/UI assets/Fonts/ka1.ttf" id="4_umdhl"]
+[ext_resource type="Texture2D" uid="uid://c8mn5vtufrsuj" path="res://assets/art/MiniAlien.png" id="4_ydev1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xictx"]
-texture = ExtResource("1_iqqw5")
+texture = ExtResource("2_bfcwf")
 modulate_color = Color(0.695503, 0.695503, 0.695503, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mt5ar"]
@@ -58,6 +60,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xictx")
 
 [node name="Title text" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -76,6 +79,19 @@ theme_override_constants/shadow_offset_y = 8
 theme_override_fonts/font = ExtResource("2_22yfj")
 theme_override_font_sizes/font_size = 48
 text = "Game Jam Title. "
+
+[node name="alian" type="Sprite2D" parent="."]
+position = Vector2(1750, 915)
+rotation = -0.169032
+scale = Vector2(1.88229, 1.88229)
+texture = ExtResource("4_ydev1")
+
+[node name="ship" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1752, 928)
+rotation = -0.169032
+scale = Vector2(5.75, 5.75)
+texture = ExtResource("4_38wia")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

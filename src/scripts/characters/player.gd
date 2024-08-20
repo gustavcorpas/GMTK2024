@@ -73,10 +73,8 @@ func _on_sizeable_component_size(res) -> void:
 		_: print_debug(res.name + "is not supported by player script!")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("test1"):
-		sizeable_component.try_size_down()
-	elif event.is_action_pressed("test2"):
-		sizeable_component.try_size_up()
+	if event.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
 
 func size_up():
 	sizeable_component.try_size_up()
