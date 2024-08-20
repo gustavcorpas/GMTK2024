@@ -9,7 +9,7 @@ func resume():
 	get_tree().paused = false
 	$Animationpause.play_backwards("Blur_screen")
 	can_process_input = false  # Disable input processing temporarily
-	await get_tree().create_timer(0.1).timeout  # Add a small delay before re-enabling input
+	await get_tree().create_timer(0.20).timeout  # Add a small delay before re-enabling input
 	can_process_input = true  # Re-enable input processing
 
 func pause():
@@ -17,11 +17,10 @@ func pause():
 	$Animationpause.play("Blur_screen")
 
 func PressEcs():
-	if can_process_input and Input.is_action_just_pressed("Esc"):
-		if get_tree().paused:
-			resume()
-		else:
-			pause()
+	if Input.is_action_just_pressed("Esc") and !get_tree().paused:
+		pause()
+	elif Input.is_action_just_pressed("Esc") and get_tree().paused:
+		resume()
 
 func _on_resume_pressed():
 	resume()
