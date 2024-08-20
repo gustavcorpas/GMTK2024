@@ -7,6 +7,7 @@ signal lever_triggered(activated)
 
 @export var portal_connections: Array[Portal] = []
 
+@onready var Pull: AudioStreamPlayer2D = $Pull
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -25,3 +26,4 @@ func _input(event: InputEvent) -> void:
 func _on_lever_triggered(activated: Variant) -> void:
 	for portal in portal_connections:
 		portal.flip()
+		Pull.play()
